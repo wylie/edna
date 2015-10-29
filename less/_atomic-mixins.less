@@ -1,0 +1,31 @@
+// ----- FONTS ---------------
+.ff(@ff: sans) { // default value can be variable
+	& when (@ff = sans) {
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	& when (@ff = serif) {
+		font-family: Georgia, serif;
+	}
+	& when (@ff = lucida) {
+		font-family: "Lucida Grande", sans-serif;
+	}
+	& when (@ff = tahoma) {
+		font-family: Tahoma, sans-serif;
+	}
+	& when (@ff = mono) {
+		font-family: monospace;
+	}
+	& when (@ff = code) {
+		font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	}
+}
+.fz(@sizeValue: 1.6) { // default value can be variable 
+	@remValue: @sizeValue;
+	@pxValue: (@sizeValue * 10);
+	font-size: unit(@pxValue,px); // fallback for IE8
+	font-size: unit(@remValue,rem); // REMs for awesome browsers
+}
+
+.z(@z: 1000) {
+	z-index: @z;
+}
