@@ -151,9 +151,7 @@
 
 // ----- PADDING ---------------
 .p(@p: 10px) {
-	& when ( isnumber(@p) ) {
-		padding: @p;
-	}
+	padding: @p;
 }
 .pt(@p: 10px) {
 	& when ( isnumber(@p) ) {
@@ -178,9 +176,7 @@
 
 // ----- MARGIN ---------------
 .m(@p: 10px) {
-	& when ( isnumber(@p) ) {
-		margin: @p;
-	}
+	margin: @p;
 }
 .mt(@m: 10px) {
 	& when ( isnumber(@m) ) {
@@ -530,6 +526,17 @@
 
 // ----- CONTENT ---------------
 .cnt(@cnt: n) {
+	& when not (@cnt = n) {
+		& when not (@cnt = oq) {
+			& when not (@cnt = noq) {
+				& when not (@cnt = cq) {
+					& when not (@cnt = ncq) {
+						content: @cnt;
+					}
+				}
+			}
+		}
+	}
 	& when (@cnt = n) {
 		content: normal;
 	}
@@ -545,15 +552,18 @@
 	& when (@cnt = ncq) {
 		content: no-close-quote;
 	}
-	& when (@cnt = a) {
-		content: attr();
-	}
-	& when (@cnt = c) {
-		content: counter();
-	}
-	& when (@cnt = cs) {
-		content: counters();
-	}
+}
+.cnta(@cnt: n) {
+	content: attr(@cnt);
+}
+.cnta(@cnt: n) {
+	content: attr(@cnt);
+}
+.cntc(@cnt: n) {
+	content: counter(@cnt);
+}
+.cntcs(@cnt: x) {
+	content: counters(@cnt);
 }
 
 // ----- OPACITY ---------------
