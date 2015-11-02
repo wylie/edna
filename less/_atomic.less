@@ -1,121 +1,200 @@
 // ----- POSITIONING ---------------
-.pos {
-	&-s {
+.pos(@pos: s) {
+	& when (@pos = s) {
 		position: static;
 	}
-	&-a {
+	& when (@pos = a) {
 		position: absolute;
 	}
-	&-r {
+	& when (@pos = r) {
 		position: relative;
 	}
-	&-f {
+	& when (@pos = f) {
 		position: fixed;
 	}
 }
 
 // ----- Z-INDEX ---------------
-.z;
+.z(@z: a) {
+	& when (@z = a) {
+		z-index: auto;
+	}
+	& when (@z = 1) {
+		z-index: 1000;
+	}
+	& when (@z = 2) {
+		z-index: 2000;
+	}
+	& when (@z = 3) {
+		z-index: 3000;
+	}
+	& when (@z = 4) {
+		z-index: 4000;
+	}
+	& when (@z = 5) {
+		z-index: 5000;
+	}
+	& when (@z = 6) {
+		z-index: 6000;
+	}
+	& when (@z = 7) {
+		z-index: 7000;
+	}
+	& when (@z = 8) {
+		z-index: 8000;
+	}
+	& when (@z = 9) {
+		z-index: 9000;
+	}
+}
 
 // ----- DISPLAY ---------------
-.d {
-	&-n {
+.d(@d: i) {
+	& when (@d = n) {
 		display: none;
 	}
-	&-b {
+	& when (@d = b) {
 		display: block;
 	}
-	&-i {
+	& when (@d = i) {
 		display: inline;
 	}
-	&-ib {
+	& when (@d = ib) {
 		display: inline-block;
 	}
-	&-tb {
+	& when (@d = tb) {
 		display: table;
 	}
-	&-tbcl {
+	& when (@d = tbcl) {
 		display: table-column;
 	}
-	&-tbr {
+	& when (@d = tbr) {
 		display: table-row;
 	}
-	&-tbc {
+	& when (@d = tbc) {
 		display: table-cell;
 	}
 }
 
 // ----- BOX-SIZING ---------------
-.bxz {
-	&-cb {
+.bxz(@bxz: cb) {
+	& when (@bxz = cb) {
 		box-sizing: content-box;
 	}
-	&-bb {
+	& when (@bxz = bb) {
 		box-sizing: border-box;
 	}
 }
 
 // ----- FLOAT ---------------
-.fl {
-	float:none;
-	&-l {
+.fl(@fl: n) {
+	& when (@fl = n) {
+		float: none;
+	}
+	& when (@fl = l) {
 		float: left;
 	}
-	&-r {
+	& when (@fl = r) {
 		float: right;
 	}
 }
 
 // ----- WIDTH ---------------
-.w {
-
+.w(@w: 100%) {
+	& when ( isnumber(@w) ) {
+		width: @w;
+	}
 }
 
 // ----- HEIGHT ---------------
-.h {
-	
+.h(@h: 100%) {
+	& when ( isnumber(@h) ) {
+		height: @h;
+	}
 }
 
 // ----- PADDING ---------------
-.p {
-
+.p(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		padding: @p;
+	}
+}
+.p-t(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		padding-top: @p;
+	}
+}
+.p-r(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		padding-right: @p;
+	}
+}
+.p-b(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		padding-bottom: @p;
+	}
+}
+.p-l(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		padding-left: @p;
+	}
 }
 
 // ----- MARGIN ---------------
-.m {
-
+.m(@p: 10px) {
+	& when ( isnumber(@p) ) {
+		margin: @p;
+	}
+}
+.m-t(@m: 10px) {
+	& when ( isnumber(@m) ) {
+		margin-top: @m;
+	}
+}
+.m-r(@m: 10px) {
+	& when ( isnumber(@m) ) {
+		margin-right: @m;
+	}
+}
+.m-b(@m: 10px) {
+	& when ( isnumber(@m) ) {
+		margin-bottom: @m;
+	}
+}
+.m-l(@m: 10px) {
+	& when ( isnumber(@m) ) {
+		margin-left: @m;
+	}
 }
 
 // ----- OVERFLOW ---------------
-.ov {
-	overflow: hidden;
-	&-v {
+.ov(@ov: v) {
+	& when (@ov = v) {
 		overflow: visible;
 	}
-	&-h {
+	& when (@ov = h) {
 		overflow: hidden;
 	}
-	&-s {
+	& when (@ov = s) {
 		overflow: scroll;
 	}
-	&-a {
+	& when (@ov = a) {
 		overflow: auto;
 	}
 }
 
 // ----- CLEAR ---------------
-.cl {
-	clear: both;
-	&-n {
+.cl(@cl: n) {
+	& when (@cl = n) {
 		clear: none;
 	}
-	&-l {
+	& when (@cl = l) {
 		clear: left;
 	}
-	&-r {
+	& when (@cl = r) {
 		clear: right;
 	}
-	&-b {
+	& when (@cl = b) {
 		clear: both;
 	}
 }
@@ -126,214 +205,290 @@
 // font family
 .ff;
 // font-weight
-.fw {
-	font-weight: normal;
-	&-b {
+.fw(@fw: n) {
+	& when (@fw = n) {
+		font-weight: normal;
+	}
+	& when (@fw = b) {
 		font-weight: bold;
 	}
 }
 
 // ----- LINE-HEIGHT ---------------
-.lh {
-
+.lh(@lh: 1) {
+	line-height: 1;
 }
 
 // ----- COLOR ---------------
-.c {
-
+.c(@c: @colorS1) {
+	color: @c
 }
 
 // ----- VERTICAL-ALIGN ---------------
-.va {
-	vertical-align: top;
-	&-sup {
+.va(@va: bl) {
+	& when (@va = sup) {
 		vertical-align: super;
 	}
-	&-t {
+	& when (@va = t) {
 		vertical-align: top;
 	}
-	&-tt {
+	& when (@va = tt) {
 		vertical-align: text-top;
 	}
-	&-m {
+	& when (@va = m) {
 		vertical-align: middle;
 	}
-	&-bl {
+	& when (@va = bl) {
 		vertical-align: baseline;
 	}
-	&-b {
+	& when (@va = b) {
 		vertical-align: bottom;
 	}
-	&-tb {
+	& when (@va = tb) {
 		vertical-align: text-bottom;
 	}
-	&-sub {
+	& when (@va = sub) {
 		vertical-align: sub;
 	}
 }
 
 // ----- LIST ---------------
-.lis {
-	&-n {
+.lis(@lis: n) {
+	& when (@lis = n) {
 		list-style: none;
 	}
-	&p {
-		&-i {
-			list-style-position: inside;
-		}
-		&-o {
-			list-style-position: outside;
-		}
+}
+.lis(@lisp: o) {
+	& when (@lisp = i) {
+		list-style-position: inside;
 	}
-	&t {
-		&-n {
-			list-style-type: none;
-		}
-		&-d {
-			list-style-type: disc;
-		}
-		&-c {
-			list-style-type: circle;
-		}
-		&-s {
-			list-style-type: square;
-		}
-		&-dc {
-			list-style-type: decimal;
-		}
-		&-dclz {
-			list-style-type: decimal-leading-zero;
-		}
-		&-lr {
-			list-style-type: lower-roman;
-		}
-		&-ur {
-			list-style-type: upper-roman;
-		}
+	& when (@lisp = o) {
+		list-style-position: outside;
 	}
-	&i {
-		&-n {
-			list-style-image: none;
-		}
+}
+.list(@list: d) {
+	& when (@list = n) {
+		list-style-type: none;
+	}
+	& when (@list = d) {
+		list-style-type: disc;
+	}
+	& when (@list = c) {
+		list-style-type: circle;
+	}
+	& when (@list = s) {
+		list-style-type: square;
+	}
+	& when (@list = dc) {
+		list-style-type: decimal;
+	}
+	& when (@list = dclz) {
+		list-style-type: decimal-leading-zero;
+	}
+	& when (@list = lr) {
+		list-style-type: lower-roman;
+	}
+	& when (@list = ur) {
+		list-style-type: upper-roman;
+	}
+}
+.lisi(@lisi: n) {
+	& when (@lisi = n) {
+		list-style-image: none;
 	}
 }
 
 // ----- WHITE-SPACE ---------------
-.whs {
-
-	&-n {
+.whs(@whs: n) {
+	& when (@whs = n) {
 		white-space: normal;
-	}  
-	&-p {
+	}
+	& when (@whs = p) {
 		white-space: pre;
-	}  
-	&-nw {
+	}
+	& when (@whs = nw) {
 		white-space: nowrap;
-	}  
-	&-pw {
+	}
+	& when (@whs = pw) {
 		white-space: pre-wrap;
-	}  
-	&-pl {
+	}
+	& when (@whs = pl) {
 		white-space: pre-line;
-	}  
-	&c {
-		&-n {
-			white-space-collapse: normal;
-		}
-		&-k {
-			white-space-collapse: keep-all;
-		}
-		&-l {
-			white-space-collapse: loose;
-		}
-		&-bs {
-			white-space-collapse: break-strict;
-		}
-		&-ba {
-			white-space-collapse: break-all;
-		}
+	}
+}
+
+.whsc(@whsc: n) {
+	& when (@whsc = n) {
+		white-space-collapse: normal;
+	}
+	& when (@whsc = k) {
+		white-space-collapse: keep-all;
+	}
+	& when (@whsc = l) {
+		white-space-collapse: loose;
+	}
+	& when (@whsc = bs) {
+		white-space-collapse: break-strict;
+	}
+	& when (@whsc = ba) {
+		white-space-collapse: break-all;
 	}
 }
 
 // ----- WORD-WRAP ---------------
-.wow {
-	word-wrap: normal;
-	&-n {
+.wow(@wow: nm) {
+	& when (@wow = nm) {
+		word-wrap: normal;
+	}
+	& when (@wow = n) {
 		word-wrap: none;
 	}
-	&-u {
+	& when (@wow = u) {
 		word-wrap: unrestricted;
 	}
-	&-s {
+	& when (@wow = s) {
 		word-wrap: suppress;
 	}
-	&-b {
+	& when (@wow = b) {
 		word-wrap: break-word;
 	}
 }
 
 // ----- WORD-BREAK ---------------
-.wob {
-	&-n {
+.wob(@wob: n) {
+	& when (@wob = n) {
 		word-break: normal;
 	}
-	&-k {
+	& when (@wob = all) {
 		word-break: keep-all;
 	}
-	&-ba {
+	& when (@wob = ba) {
 		word-break: break-all;
 	}
 }
 
 // ----- CURSOR ---------------
-.cur {
-	&-a {
+.cur(@cur: a) {
+	& when (@cur = a) {
 		cursor: auto;
 	}
-	&-d {
+	& when (@cur = d) {
 		cursor: default;
 	}
-	&-c {
+	& when (@cur = c) {
 		cursor: crosshair;
 	}
-	&-ha {
+	& when (@cur = ha) {
 		cursor: hand;
 	}
-	&-he {
+	& when (@cur = he) {
 		cursor: help;
 	}
-	&-m {
+	& when (@cur = m) {
 		cursor: move;
 	}
-	&-p {
+	& when (@cur = p) {
 		cursor: pointer;
 	}
-	&-t {
+	& when (@cur = t) {
 		cursor: text;
 	}
 }
 
 // ----- BACKGROUND ---------------
-.bg {
-
+.bgc(@bgc: #000) {
+	background-color: @bgc;
+}
+.bgi {
+	background-image: url('test.gif');
+}
+.bgr {
+	background-repeat: no-repeat;
+}
+.bgp(@x, @y) {
+	background-position: @x @y;
+}
+.bgpx(@x) {
+	background-position-x: @x;
+}
+.bgpy(@y) {
+	background-position-y: @y;
+}
+.bgsz {
+	background-size: 100%;
 }
 
 // ----- BORDER ---------------
-.bd {
-
+.bd(@w: 1px ,@s: solid ,@c: #000) {
+	border: unit(@w, px) @s @c;
+}
+.bdt(@w: 1px ,@s: solid ,@c: #000) {
+	border-top: unit(@w, px) @s @c;
+}
+.bdr(@w: 1px ,@s: solid ,@c: #000) {
+	border-right: unit(@w, px) @s @c;
+}
+.bdb(@w: 1px ,@s: solid ,@c: #000) {
+	border-bottom: unit(@w, px) @s @c;
+}
+.bdl(@w: 1px ,@s: solid ,@c: #000) {
+	border-left: unit(@w, px) @s @c;
+}
+.bdc(@bdc: #000) {
+	border-color: @bdc;
+}
+.bds(@bds: solid) {
+	border-style: @bds;
+}
+.bdw(@bdw: 1px) {
+	border-width: unit(@bdw, px);
+}
+.bdrs(@bdrs: 3px) {
+	border-radius: unit(@bdrs, px);
 }
 
 // ----- CONTENT ---------------
-.cnt {
-
+.cnt(@cnt: n) {
+	& when (@cnt = n) {
+		content: normal;
+	}
+	& when (@cnt = oq) {
+		content: open-quote;
+	}
+	& when (@cnt = noq) {
+		content: no-open-quote;
+	}
+	& when (@cnt = cq) {
+		content: close-quote;
+	}
+	& when (@cnt = ncq) {
+		content: no-close-quote;
+	}
+	& when (@cnt = a) {
+		content: attr();
+	}
+	& when (@cnt = c) {
+		content: counter();
+	}
+	& when (@cnt = cs) {
+		content: counters();
+	}
 }
 
 // ----- OPACITY ---------------
-.op {
-
+.op(@op: 1) {
+	opacity: @op;
 }
 
 // ----- VISIBILITY ---------------
-.v {
-
+.v(@v: v) {
+	& when (@v = v) {
+		visibility: visible;
+	}
+	& when (@v = h) {
+		visibility: hidden;
+	}
+	& when (@v = c) {
+		visibility: collapse;
+	}
 }
