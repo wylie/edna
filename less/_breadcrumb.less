@@ -23,51 +23,46 @@
 
 // this should be combined with the list widget...
 .breadcrumb {
-	z-index: @index-3;
+	.z(3);
+	.p(5px);
+	.lh(10px);
+	.bgc(@breadcrumb-bgcolor);
 
-	padding: 5px;
-
-	line-height: 10px;
-
-	background-color: @breadcrumb-bgcolor;
 	.list-item {
-		.fontsize(1.3);
+		.fz(1.3);
+		.d(i);
+		.fw(b);
 
-		display: inline;
-
-		font-weight: bold;
 		// add the dividers between the breadcrumb items
 		&:before,
 		&::before {
-			padding: 0 10px;
-			padding: 0 2px 0 5px;
-
-			content: @breadcrumb-content;
+			.p(0 2px 0 5px);
+			.cnt(@breadcrumb-content);
 		}
 		// remove breadcrumb divider for first item
 		&:first-child {
 			&:before,
 			&::before {
-				display: none;
+				.d(n);
 			}
 		}
 		// this removes the white space between the :before and the txt-link
 		> .txt-link {
-			margin-left: -4px;
+			.ml(-4px);
+			.c(@colorP1);
 
-			color: @colorP1; //#0a7690 ? skinning color
 			// without this the first item is too far left
 			&:first-child {
-				margin-left: 0;
+				.ml(0);
 			}
 		}
 	}
 	// clear after the breadcrumb
 	&:after,
 	&::after {
-		display: table;
-		clear: both;
+		.d(tb);
+		.cl(b);
+		.cnt('');
 
-		content: '';
 	}
 }
