@@ -32,59 +32,53 @@
 
 
 .btn-group {
-	position: relative;
+	.pos(r);
+	.d(i);
+	.whs(nw);
 
-	display: inline;
-
-	white-space: nowrap;
 	> .transport {
-		display: inline-block;
+		.d(ib);
 		> .top, > .right, > .bottom, > .left {
-			position: relative;
-			right: -4px;
-
-			border-width: 5px;
+			.pos(r);
+			.r(-4px);
+			.bdw(5);
 		}
 		> .top {
-			top: -2px;
-
-			margin-top: 2.5px;
-			margin-bottom: 2.5px;
+			.t(-2px);
+			.mt(2.5px);
+			.mb(2.5px);
 		}
 		> .right {
-			top: 1px;
+			.t(1px);
+			.ml(2.5px);
 
-			margin-left: 2.5px;
-
-			border-right-width: 0;
+			border-right-width: 0; // need to make this atomic
 		}
 		> .bottom {
-			top: 4px;
-
-			margin-top: 2.5px;
-			margin-bottom: 2.5px;
+			.t(4px);
+			.mt(2.5px);
+			.mb(2.5px);
 		}
 		> .left {
-			margin-right: 2.5px;
-			margin-left: 0;
+			.mr(2.5px);
+			.ml(0);
 
-			border-left-width: 0;
+			border-left-width: 0; // need to make this atomic
 		}
 	}
 	// multiple inline buttons
 	> .btn, > .btn-mini {
 		&:first-child {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
+			border-top-right-radius: 0; // need to make this atomic
+			border-bottom-right-radius: 0; // need to make this atomic
 		}
 		+ .btn, + .btn-mini {
-			margin-left: -6px;
-
-			border-radius: 0;
+			.ml(-6px);
+			.bdrs(0);
 		}
 		&:last-child {
-			border-top-right-radius: 3px;
-			border-bottom-right-radius: 3px;
+			border-top-right-radius: 3px; // need to make this atomic
+			border-bottom-right-radius: 3px; // need to make this atomic
 		}
 	}
 }
