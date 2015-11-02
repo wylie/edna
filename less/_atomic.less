@@ -200,11 +200,34 @@
 }
 
 // ----- FONT ---------------
-// font size
-.fz;
-// font family
-.ff;
-// font-weight
+.fz(@fz: 1.6) {
+	& when ( isnumber(@fz) ) {
+		@remFz: @fz;
+		@pxFz: (@fz * 10);
+		font-size: unit(@pxFz, px);
+		font-size: unit(@remFz, rem);
+	}
+}
+.ff(@ff: sans) {
+	& when (@ff = sans) {
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	& when (@ff = serif) {
+		font-family: Georgia, serif;
+	}
+	& when (@ff = lucida) {
+		font-family: "Lucida Grande", sans-serif;
+	}
+	& when (@ff = tahoma) {
+		font-family: Tahoma, sans-serif;
+	}
+	& when (@ff = mono) {
+		font-family: monospace;
+	}
+	& when (@ff = code) {
+		font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+	}
+}
 .fw(@fw: n) {
 	& when (@fw = n) {
 		font-weight: normal;
@@ -216,12 +239,16 @@
 
 // ----- LINE-HEIGHT ---------------
 .lh(@lh: 1) {
-	line-height: 1;
+	& when ( isnumber(@lh ) {
+		line-height: @lh;
+	}
 }
 
 // ----- COLOR ---------------
 .c(@c: @colorS1) {
-	color: @c
+	& when ( iscolor(@c) ) {
+		color: @c
+	}
 }
 
 // ----- VERTICAL-ALIGN ---------------
@@ -397,10 +424,12 @@
 
 // ----- BACKGROUND ---------------
 .bgc(@bgc: #000) {
-	background-color: @bgc;
+	& when ( iscolor(@bgc) ) {
+		background-color: @bgc;
+	}
 }
-.bgi {
-	background-image: url('test.gif');
+.bgi(@bgi) {
+	background-image: url(@bgi);
 }
 .bgr {
 	background-repeat: no-repeat;
@@ -414,8 +443,10 @@
 .bgpy(@y) {
 	background-position-y: @y;
 }
-.bgsz {
-	background-size: 100%;
+.bgsz(@bgsz: 100%) {
+	& when ( isnumber(@bgsz) ) {
+		background-size: @bgsz;
+	}
 }
 
 // ----- BORDER ---------------
@@ -435,16 +466,22 @@
 	border-left: unit(@w, px) @s @c;
 }
 .bdc(@bdc: #000) {
-	border-color: @bdc;
+	& when ( iscolor(@bdc) )
+		border-color: @bdc;
+	}
 }
 .bds(@bds: solid) {
 	border-style: @bds;
 }
 .bdw(@bdw: 1px) {
-	border-width: unit(@bdw, px);
+	& when ( isnumber(@bdw) ) {
+		border-width: unit(@bdw, px);
+	}
 }
 .bdrs(@bdrs: 3px) {
-	border-radius: unit(@bdrs, px);
+	& when ( isnumber(@bdrs) ) {
+		border-radius: unit(@bdrs, px);
+	}
 }
 
 // ----- CONTENT ---------------
@@ -477,7 +514,9 @@
 
 // ----- OPACITY ---------------
 .op(@op: 1) {
-	opacity: @op;
+	& when ( isnumber(@op) ) {
+		opacity: @op;
+	}
 }
 
 // ----- VISIBILITY ---------------
