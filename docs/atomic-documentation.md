@@ -135,7 +135,7 @@ You can pass 1–4 values into this mixin.
 **padding-top**
 
 ```css
-.p-t(@p: 10px) {
+.pt(@p: 10px) {
 	& when ( isnumber(@p) ) {
 		padding-top: @p;
 	}
@@ -145,7 +145,7 @@ You can pass 1–4 values into this mixin.
 **padding-right**
 
 ```css
-.p-r(@p: 10px) {
+.pr(@p: 10px) {
 	& when ( isnumber(@p) ) {
 		padding-right: @p;
 	}
@@ -155,7 +155,7 @@ You can pass 1–4 values into this mixin.
 **padding-bottom**
 
 ```css
-.p-b(@p: 10px) {
+.pb(@p: 10px) {
 	& when ( isnumber(@p) ) {
 		padding-bottom: @p;
 	}
@@ -165,7 +165,7 @@ You can pass 1–4 values into this mixin.
 **padding-left**
 
 ```css
-.p-l(@p: 10px) {
+.pl(@p: 10px) {
 	& when ( isnumber(@p) ) {
 		padding-left: @p;
 	}
@@ -191,7 +191,7 @@ You can pass 1–4 values into this mixin.
 **margin-top**
 
 ```css
-.m-t(@m: 10px) {
+.mt(@m: 10px) {
 	& when ( isnumber(@m) ) {
 		margin-top: @m;
 	}
@@ -201,7 +201,7 @@ You can pass 1–4 values into this mixin.
 **margin-right**
 
 ```css
-.m-r(@m: 10px) {
+.mr(@m: 10px) {
 	& when ( isnumber(@m) ) {
 		margin-right: @m;
 	}
@@ -211,7 +211,7 @@ You can pass 1–4 values into this mixin.
 **margin-bottom**
 
 ```css
-.m-b(@m: 10px) {
+.mb(@m: 10px) {
 	& when ( isnumber(@m) ) {
 		margin-bottom: @m;
 	}
@@ -221,7 +221,7 @@ You can pass 1–4 values into this mixin.
 **margin-left**
 
 ```css
-.m-l(@m: 10px) {
+.ml(@m: 10px) {
 	& when ( isnumber(@m) ) {
 		margin-left: @m;
 	}
