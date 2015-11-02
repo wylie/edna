@@ -1,5 +1,7 @@
 ## Positioning
 
+**position**
+
 `.pos(@pos: s)`
 
 Available Values: 
@@ -9,6 +11,42 @@ Available Values:
 - r = `position: relative;`
 - f = `position: fixed;`
 
+**top**
+
+`.t(@t: a)`
+
+Available Values: 
+
+- a = `top: auto;`
+- &lt;number> = `top: <number>;`
+
+**right**
+
+`.r(@r: a)`
+
+Available Values: 
+
+- a = `right: auto;`
+-  &lt;number> = `right: <number>;`
+
+**bottom**
+
+`.b(@b: a)`
+
+Available Values: 
+
+- a = `bottom: auto;`
+-  &lt;number> = `bottom: <number>;`
+
+**left**
+
+`.l(@l: a)`
+
+Available Values: 
+
+- a = `left: auto;`
+-  &lt;number> = `left: <number>;`
+
 ## Z-Index
 
 `.z(@z: a)`
@@ -16,7 +54,7 @@ Available Values:
 Available Values: 
 
 - a = `z-index: auto;`*
-- 1-9 = `z-index: 1-9;`
+- &lt;number> = `z-index: <number>;`
 
 The value of `@z` can be a letter (a) or number (1–9)
 
@@ -56,6 +94,8 @@ Available Values:
 
 ## Width
 
+`@w` must be any number **with any unit type**. This will fail if it's not.
+
 ```css
 .w(@w: 100%) {
 	& when ( isnumber(@w) ) {
@@ -65,6 +105,8 @@ Available Values:
 ```
 
 ## Height
+
+`@h` must be a number **with any unit type**. This will fail if it's not.
 
 ```css
 .h(@h: 100%) {
@@ -76,9 +118,11 @@ Available Values:
 
 ## Padding
 
+`@p` must be a number **with any unit type**. This will fail if it's not.
+
 **padding**
 
-You can pass 1–4 values into this mixin. Must be a number.
+You can pass 1–4 values into this mixin.
 
 ```css
 .p(@p: 10px) {
@@ -130,14 +174,16 @@ You can pass 1–4 values into this mixin. Must be a number.
 
 ## Margin
 
+`@m` must be a number **with any unit type**. This will fail if it's not.
+
 **margin**
 
-You can pass 1–4 values into this mixin. Must be a number.
+You can pass 1–4 values into this mixin.
 
 ```css
-.m(@p: 10px) {
-	& when ( isnumber(@p) ) {
-		margin: @p;
+.m(@m: 10px) {
+	& when ( isnumber(@m) ) {
+		margin: @m;
 	}
 }
 ```
@@ -206,6 +252,8 @@ Available Values:
 
 ## Font
 
+`@fz` must be a number **with no unit type**. This will fail if it's not.
+
 **font-size**
 
 ```css
@@ -243,6 +291,8 @@ Available Values:
 
 ## Line-Height
 
+`@lh` must be a number **with no unit type**. This will fail if it's not.
+
 ```css
 .lh(@lh: 1) {
 	& when ( isnumber(@lh ) {
@@ -253,9 +303,13 @@ Available Values:
 
 ## Color
 
+`@c` must be a color **of any type: hex, rgb, rgba, or hsla**. This will fail if it's not.
+
 ```css
 .c(@c: @colorS1) {
-	color: @c
+	& when ( iscolor(@c) ) {
+		color: @c
+	}
 }
 ```
 
@@ -375,9 +429,13 @@ Available Values:
 
 **background-color**
 
+`@bgc` must be a color **of any type: hex, rgb, rgba, or hsla**. This will fail if it's not.
+
 ```css
 .bgc(@bgc: #000) {
-	background-color: @bgc;
+	& when ( iscolor(@bgc) ) {
+		background-color: @bgc;
+	}
 }
 ```
 
@@ -425,9 +483,7 @@ Available Values:
 
 ```css
 .bgsz(@bgsz: 100%) {
-	& when ( isnumber(@bgsz) ) {
-		background-size: @bgsz;
-	}
+	background-size: @bgsz;
 }
 ```
 
@@ -491,6 +547,8 @@ Available Values:
 
 **border-width**
 
+`@bdw` must be a number **with no type**. This will fail if it's not.
+
 ```css
 .bdw(@bdw: 1px) {
 	& when ( isnumber(@bdw) ) {
@@ -500,6 +558,8 @@ Available Values:
 ```
 
 **border-radius**
+
+`@bdrs` must be a number **with no type**. This will fail if it's not.
 
 ```css
 .bdrs(@bdrs: 3px) {
@@ -526,10 +586,12 @@ Available Values:
 
 ## Opacity
 
+`@op` must be a number **with no type**. This will fail if it's not.
+
 ```css
 .op(@op: 1) {
 	& when ( isnumber(@op) ) {
-		opacity: @op;
+		opacity: unit(@op, );
 	}
 }
 ```
@@ -543,7 +605,6 @@ Available Values:
 - v = `visibility: visible;`*
 - h = `visibility: hidden;`
 - c = `visibility: collapse;`
-
 
 
 ** * = default value

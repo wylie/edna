@@ -14,37 +14,73 @@
 	}
 }
 
+.t(@t: a) {
+	& when (@t = a) {
+		top: auto;
+	}
+	& when ( isnumber(@t) ) {
+		top: @t;
+	}
+}
+.r(@r: a) {
+	& when (@r = a) {
+		right: auto;
+	}
+	& when ( isnumber(@r) ) {
+		right: @r;
+	}
+}
+.b(@b: a) {
+	& when (@b = a) {
+		bottom: auto;
+	}
+	& when ( isnumber(@b) ) {
+		bottom: @b;
+	}
+}
+.l(@l: a) {
+	& when (@l = a) {
+		left: auto;
+	}
+	& when ( isnumber(@l) ) {
+		left: @l;
+	}
+}
+
+
 // ----- Z-INDEX ---------------
 .z(@z: a) {
 	& when (@z = a) {
 		z-index: auto;
 	}
-	& when (@z = 1) {
-		z-index: 1000;
-	}
-	& when (@z = 2) {
-		z-index: 2000;
-	}
-	& when (@z = 3) {
-		z-index: 3000;
-	}
-	& when (@z = 4) {
-		z-index: 4000;
-	}
-	& when (@z = 5) {
-		z-index: 5000;
-	}
-	& when (@z = 6) {
-		z-index: 6000;
-	}
-	& when (@z = 7) {
-		z-index: 7000;
-	}
-	& when (@z = 8) {
-		z-index: 8000;
-	}
-	& when (@z = 9) {
-		z-index: 9000;
+	& when ( isnumber(@z) ) {
+		& when (@z = 1) {
+			z-index: 1000;
+		}
+		& when (@z = 2) {
+			z-index: 2000;
+		}
+		& when (@z = 3) {
+			z-index: 3000;
+		}
+		& when (@z = 4) {
+			z-index: 4000;
+		}
+		& when (@z = 5) {
+			z-index: 5000;
+		}
+		& when (@z = 6) {
+			z-index: 6000;
+		}
+		& when (@z = 7) {
+			z-index: 7000;
+		}
+		& when (@z = 8) {
+			z-index: 8000;
+		}
+		& when (@z = 9) {
+			z-index: 9000;
+		}
 	}
 }
 
@@ -444,41 +480,49 @@
 	background-position-y: @y;
 }
 .bgsz(@bgsz: 100%) {
-	& when ( isnumber(@bgsz) ) {
-		background-size: @bgsz;
-	}
+	background-size: @bgsz;
 }
 
 // ----- BORDER ---------------
-.bd(@w: 1px ,@s: solid ,@c: #000) {
-	border: unit(@w, px) @s @c;
+.bd(@w: 1 ,@s: solid ,@c: #000) {
+	& when ( isnumber(@w) ) and ( iscolor(@c) ) {
+		border: unit(@w, px) @s @c;
+	}
 }
-.bdt(@w: 1px ,@s: solid ,@c: #000) {
-	border-top: unit(@w, px) @s @c;
+.bdt(@w: 1 ,@s: solid ,@c: #000) {
+	& when ( isnumber(@w) ) and ( iscolor(@c) ) {
+		border-top: unit(@w, px) @s @c;
+	}
 }
-.bdr(@w: 1px ,@s: solid ,@c: #000) {
-	border-right: unit(@w, px) @s @c;
+.bdr(@w: 1 ,@s: solid ,@c: #000) {
+	& when ( isnumber(@w) ) and ( iscolor(@c) ) {
+		border-right: unit(@w, px) @s @c;
+	}
 }
-.bdb(@w: 1px ,@s: solid ,@c: #000) {
-	border-bottom: unit(@w, px) @s @c;
+.bdb(@w: 1 ,@s: solid ,@c: #000) {
+	& when ( isnumber(@w) ) and ( iscolor(@c) ) {
+		border-bottom: unit(@w, px) @s @c;
+	}
 }
-.bdl(@w: 1px ,@s: solid ,@c: #000) {
-	border-left: unit(@w, px) @s @c;
+.bdl(@w: 1 ,@s: solid ,@c: #000) {
+	& when ( isnumber(@w) ) and ( iscolor(@c) ) {
+		border-left: unit(@w, px) @s @c;
+	}
 }
 .bdc(@bdc: #000) {
-	& when ( iscolor(@bdc) )
+	& when ( iscolor(@bdc) ) {
 		border-color: @bdc;
 	}
 }
 .bds(@bds: solid) {
 	border-style: @bds;
 }
-.bdw(@bdw: 1px) {
+.bdw(@bdw: 1) {
 	& when ( isnumber(@bdw) ) {
 		border-width: unit(@bdw, px);
 	}
 }
-.bdrs(@bdrs: 3px) {
+.bdrs(@bdrs: 3) {
 	& when ( isnumber(@bdrs) ) {
 		border-radius: unit(@bdrs, px);
 	}
@@ -515,7 +559,7 @@
 // ----- OPACITY ---------------
 .op(@op: 1) {
 	& when ( isnumber(@op) ) {
-		opacity: @op;
+		opacity: unit(@op, );
 	}
 }
 
