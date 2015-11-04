@@ -36,15 +36,14 @@ fieldset {
 // Styleguide 5.1
 
 .form-group {
-	margin-bottom: @group-spacing;
+	.mb(@group-spacing);
 }
 
 .group-heading {
-	display: block;
-	margin-bottom: @heading-spacing;
-
-	font-size: @heading-font-size;
-	font-weight: bold;
+	.d(b);
+	.mb(@heading-spacing);
+	.fz(@heading-font-size);
+	.fw(b);
 }
 
 // Form Fields
@@ -65,13 +64,12 @@ fieldset {
 // Styleguide 5.2
 
 .field {
-	margin-bottom: @field-spacing;
+	.mb(@field-spacing);
 }
 
 .field-label {
-	display: block;
-	margin-bottom: @label-spacing;
-
-	font-size: @label-font-size;
-	font-weight: bold;
+	.d(b);
+	.mb(@label-spacing);
+	.fz(@label-font-size);
+	.fw(b);
 }

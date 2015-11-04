@@ -5,13 +5,13 @@
 .headings(6); // will error if more than 6
 
 .heading {
-	color: @colorP2;
+	.c(@colorP2);
 	a {
-		color: inherit;
+		.c(i);
 	}
 }
 
 .subheading {
-	font-weight: normal;
-	color: @subheading-color;
+	.fw(n);
+	.c(@subheading-color);
 }

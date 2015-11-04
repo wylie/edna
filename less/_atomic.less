@@ -274,12 +274,23 @@
 	& when ( isnumber(@lh ) ) {
 		line-height: @lh;
 	}
+	& when not ( isnumber(@lh ) ) {
+		& when (@lh = n) {
+			line-height: normal;
+		}
+	}
 }
+// need to add a 'normal' option
 
 // ----- COLOR ---------------
 .c(@c: #333) {
 	& when ( iscolor(@c) ) {
 		color: @c
+	}
+	& when not ( iscolor(@c) ) {
+		& when (@c = i) {
+			color: inherit;
+		}
 	}
 }
 
@@ -519,9 +530,7 @@
 	}
 }
 .bdrs(@bdrs: 3) {
-	& when ( isnumber(@bdrs) ) {
-		border-radius: unit(@bdrs, px);
-	}
+	border-radius: @bdrs;
 }
 
 // ----- CONTENT ---------------
@@ -586,3 +595,25 @@
 		visibility: collapse;
 	}
 }
+
+.td(@td: n) {
+	& when (@td = n) {
+		text-decoration:none;
+	}
+	& when (@td = u) {
+		text-decoration:underline;
+	}
+	& when (@td = o) {
+		text-decoration:overline;
+	}
+	& when (@td = l) {
+		text-decoration:line-through;
+	}
+}
+
+// add the following
+// text-decoration
+// border-right-width
+// border-bottom-width
+// border-left-width
+// border-radius - with more than one entry

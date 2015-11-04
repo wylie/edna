@@ -17,73 +17,62 @@
 // Styleguide 4.1
 
 .dropdown {
-	position: relative;
-
-	display: inline-block;
-
-	line-height: normal;
-
-	-moz-border-radius: @radius;
-	     border-radius: @radius;
+	.pos(r);
+	.d(ib);
+	.bdrs;
+	.lh(n);
 	.dropdown-list {
-		.radius;
-
-		padding: 0;
-
-		list-style-type: none;
+		.bdrs;
+		.p(0);
+		.list(n);
 	}
 	.dropdown-label {
-		display: block;
-		padding: 5px;
-
-		white-space: nowrap;
-		cursor: pointer;
+		.d(b);
+		.p(5px);
+		.whs(nw);
+		.cur(p);
 		&:hover {
-			color: @colorS1;
-
-			background-color: darken(@bg1, 20);
+			.c(@colorS1);
+			.bgc(darken(@bg1, 20));
 		}
 	}
 	.dropdown-input {
-		position: absolute;
-
-		left: -9999px;
+		.pos(a);
+		.l(-9999px);
 		&:checked + .dd-label {
-			color: @font-color;
-
-			background-color: darken(@bg2, 10%);
+			.c(@font-color);
+			.bgc(darken(@bg2, 10%));
 			&:hover {
-				background-color: @bg3;
+				.bgc(@bg3);
 			}
 		}
 	}
 	.dropdown-active {
-		display: inline-block;
-		padding: .25rem .5rem;
-
-		color: @font-color;
-		text-decoration: none;
-		cursor: pointer;
+		.d(ib);
+		.p(.25rem .5rem);
+		.c(@font-color);
+		.cur(p);
+		.td;
 		&.open {
 			~ .dd-list {
-				display: inline-block;
+				.d(ib);
 			}
 		}
 	}
 	// DROPDOWN SPECIFIC STYLES
 	.transport {
-		display: inline-block;
+		.d(ib);
 		> .top {
-			margin-top: -((@px * .5) / 2);
-			margin-bottom: ((@px * .5) / 2);
+			.mt(-((@px * .5) / 2));
+			.mb((@px * .5) / 2);
 
 			border-right-width: (@px * .5);
 			border-bottom-width: (@px * .5);
 			border-left-width: (@px * .5);
 		}
 		> .bottom {
-			margin-top: -((@px * .5) / 2);
-			margin-bottom: ((@px * .5) / 2);
+			.mt(-((@px * .5) / 2));
+			.mb((@px * .5) / 2);
 
 			border-top-width: (@px * .5);
 			border-right-width: (@px * .5);
@@ -99,17 +88,15 @@
 		&.last {
 			.dropdown-active {
 				border-left-width: 0;
-				-moz-border-radius: 0 @radius @radius 0;
-				     border-radius: 0 @radius @radius 0;
+				.bdrs(0 @radius @radius 0);
 			}
 		}
 		&:first-child,
 		&.first {
-			float: left;
+			.fl(l);
 			.dropdown-active {
 				border-left-width: 1px;
-				-moz-border-radius: @radius 0 0 @radius;
-				     border-radius: @radius 0 0 @radius;
+				.bdrs(@radius 0 0 @radius);
 			}
 		}
 	}

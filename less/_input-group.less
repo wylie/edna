@@ -22,29 +22,29 @@
 @import '../less/_input.less';
 
 .input-group {
-	display: table-row;
+	.d(tbr);
 	> .btn {
-		display: table-cell;
-
-		vertical-align: top;
+		.d(tbc);
+		.va(t);
 	}
 	> input {
-		display: table-cell;
-
-		vertical-align: top;
+		.d(tbc);
+		.va(t);
 	}
 }
 .input-group-btn {
-	display: table-cell;
-	padding-left: 10px;
-
-	vertical-align: top;
+	.d(tbc);
+	.p(10px);
+	.va(t);
 }
 .input-reset {
-	display: table-cell;
-
-	vertical-align: top;
+	.d(tbc);
+	.va(t);
 	+ .btn {
-		margin-left: 15px;
+		.ml(15px);
 	}
+}
+
+.test {
+	.c(i);
 }

@@ -17,30 +17,28 @@
 // Styleguide 2.1
 
 .btn {
-	.fontsize(1.9);
+	.fz(1.9);
 
 	@btn-height: 40px;
 	@color: #333;
 
 	& + & {
-		margin-left: 10px;
+		.ml(10px);
 	}
 
-	height: @btn-height;
-	padding: 0 21px;
-	border-width: 1px;
-	border-style: solid;
-	background-color: @btn-bg;
-	border-color: @btn-border;
+	.h(@btn-height);
+	.p(0 21px);
+	.bdw(1);
+	.bds;
+	.bgc(@btn-bg);
+	.bdc(@btn-border);
+	.cur(p);
+	.bdrs;
 	&:hover {
-		background-color: @btn-bg-hover;
-		border-color: @btn-border-hover;
+		.bgc(@btn-bg-hover);
+		.bdc(@btn-border-hover);
 	}
 
-	cursor: pointer;
-
-	border-color: @btn-border;
-	border-radius: 4px;
 	// button variations
 	@list: action, cancel, disabled, primary, search, select;
 	.loop(@arrayLength, @index: 1) when (@index =< @arrayLength) {
@@ -51,15 +49,15 @@
 			&.@{classVal} {
 				border-color: ~'@{btn-@{classVal}-border}';
 				background-color: ~'@{btn-@{classVal}-bg}';
-				height: 30px;
-				font-size: 13px;
-				padding: 0 15px 0 20px;
+				.h(30px);
+				.fz(13px);
+				.p(0 15px 0 20px);
 
 				.icon {
-					width: 14px;
-					height: 14px;
-					margin: 0 7px 0 -7px;
-					vertical-align: top;
+					.w(14px);
+					.h(14px);
+					.m(0 7px 0 -7px);
+					.va(t);
 				}
 				&:hover {
 					border-color: ~'@{btn-@{classVal}-border-hover}';
@@ -115,7 +113,7 @@
 			&.@{classVal} {
 				background-color: ~'@{btn-@{classVal}-bg}';
 				border-color: ~'@{btn-@{classVal}-border}';
-				color: @color;
+				.c(@color);
 
 				&:hover {
 					border-color: ~'@{btn-@{classVal}-border-hover}';
@@ -136,9 +134,8 @@
 			&.@{classVal} {
 				background-color: ~'@{btn-@{classVal}-bg}';
 				border-color: ~'@{btn-@{classVal}-border}';
-				color: @colorS1;
-
-				height: @searchbar-input-height;
+				.c(@colorS1);
+				.h(@searchbar-input-height);
 
 				&:hover {
 					border-color: ~'@{btn-@{classVal}-border-hover}';
@@ -164,7 +161,7 @@
 			.@{classVal} & {
 				.select;
 				&:hover {
-					background-color: #fff;
+					.bgc(#fff);
 				}
 			}
 		}
@@ -175,27 +172,27 @@
 
 	// when you have an icon in a button
 	.icon {
-		width: 18px;
-		height: 18px;
-		margin: -5px 5px 0 -5px;
-		vertical-align: middle;
-		background-size: 100%;
+		.w(18px);
+		.h(18px);
+		.m(-5px 5px 0 -5px);
+		.va(m);
+		.bgsz(100%);
 	}
 
 	// overrides to the text buttons
 	&-txt,
 	&-txt-link {
-		background-color: @btn-bgcolor-txt;
-		border-color: @btn-bordercolor-txt;
-		padding: 0;
-		font-size: 13px;
+		.bgc(@btn-bgcolor-txt);
+		.bdc(@btn-bordercolor-txt);
+		.p(0);
+		.fz(1.3);
 
 		&:hover,
 		&.hover,
 		&:active,
 		&.active {
-			background-color: @btn-bgcolor-txt-hover;
-			border-color: @btn-bordercolor-txt-hover;
+			.bgc(@btn-bgcolor-txt-hover);
+			.bdc(@btn-bordercolor-txt-hover);
 			text-decoration: underline;
 			box-shadow: none;
 		}
@@ -203,19 +200,19 @@
 
 	// overrides to the text buttons
 	&-txt {
-		color: @btn-color-txt;
+		.c(@btn-color-txt);
 
 		& + & {
-			margin-left: 15px;
+			.ml(15px);
 		}
 	}
 
 	// overrides to the text buttons
 	&-txt-link {
-		color: @btn-color-txt-link;
+		.c(@btn-color-txt-link);
 
 		& + & {
-			margin-left: 15px;
+			.ml(15px);
 		}
 	}
 }
